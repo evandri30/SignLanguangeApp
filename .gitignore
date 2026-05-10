@@ -1,0 +1,8 @@
+venv/
+datasets/
+runs/
+*.pt
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
