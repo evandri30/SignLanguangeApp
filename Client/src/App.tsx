@@ -1,9 +1,13 @@
-function App() {
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { DetectionPage } from "./pages/DetectionPage";
+ 
+export default function App() {
   return (
-    <>
-      <h1 className="text-red-700">test</h1>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/detect" element={<DetectionPage />} />
+        <Route path="*" element={<Navigate to="/detect" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
