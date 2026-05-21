@@ -4,7 +4,7 @@ from collections import deque, Counter
 
 def main():
     # Panggil model yolo
-    MODEL_PATH = 'runs/detect/train-2/weights/best.pt'
+    MODEL_PATH = '#'
     model = YOLO(MODEL_PATH)
 
     # nyalain web cam
