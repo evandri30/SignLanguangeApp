@@ -1,25 +1,25 @@
 import { useEffect, useRef, useState, useCallback } from "react";
- 
+
 interface UseCameraReturn {
-  videoRef: React.RefObject<HTMLVideoElement>;
-  isReady: boolean;    
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+  isReady: boolean;
   error: string | null;
   startCamera: () => Promise<void>;
   stopCamera: () => void;
 }
- 
+
 export function useCamera(): UseCameraReturn {
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
- 
+
   const stopCamera = useCallback(() => {
     streamRef.current?.getTracks().forEach((track) => track.stop());
     streamRef.current = null;
     setIsReady(false);
   }, []);
- 
+
   const startCamera = useCallback(async () => {
     setError(null);
     try {
@@ -31,9 +31,9 @@ export function useCamera(): UseCameraReturn {
         },
         audio: false,
       });
- 
+
       streamRef.current = stream;
- 
+
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         videoRef.current.onloadedmetadata = () => {
@@ -50,10 +50,10 @@ export function useCamera(): UseCameraReturn {
       console.error("[useCamera]", err);
     }
   }, []);
- 
+
   useEffect(() => {
     return () => stopCamera();
   }, [stopCamera]);
- 
+
   return { videoRef, isReady, error, startCamera, stopCamera };
 }

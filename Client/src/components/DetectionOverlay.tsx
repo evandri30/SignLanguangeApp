@@ -1,47 +1,50 @@
 import type { DetectionItem } from "@/types/detection";
+import { motion, AnimatePresence } from "motion/react";
 
 interface DetectionOverlayProps {
   topPrediction: DetectionItem | null;
   allDetections: DetectionItem[];
 }
 
-export function DetectionOverlay({ topPrediction, allDetections }: DetectionOverlayProps) {
-  if (!topPrediction) {
-    return (
-      <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
-        <div className="bg-black/50 text-white text-sm px-4 py-2 rounded-full font-mono">
-          Arahkan tangan ke kamera...
-        </div>
-      </div>
-    );
-  }
- 
-  const confidencePct = Math.round(topPrediction.confidence * 100);
- 
+export function DetectionOverlay({ topPrediction }: DetectionOverlayProps) {
+  const getConfidenceLabel = (conf: number) => {
+    if (conf >= 0.90) return "Sangat yakin";
+    if (conf >= 0.70) return "Yakin";
+    return "Mendekati";
+  };
+
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
-        <div className="bg-indigo-600/90 text-white text-4xl font-bold px-6 py-3 rounded-2xl shadow-xl tracking-widest">
-          {topPrediction.label}
-        </div>
-        <div className="bg-black/60 text-white text-xs px-3 py-1 rounded-full font-mono">
-          {confidencePct}% confidence
-        </div>
-      </div>
- 
-      {allDetections.length > 1 && (
-        <div className="absolute top-4 right-4 flex flex-col gap-1">
-          {allDetections.map((d, i) => (
-            <div
-              key={i}
-              className="bg-black/60 text-white text-xs px-2 py-1 rounded font-mono flex justify-between gap-3"
-            >
-              <span>{d.label}</span>
-              <span className="text-indigo-300">{Math.round(d.confidence * 100)}%</span>
+    <div className="absolute inset-0 pointer-events-none flex items-end justify-center pb-6">
+      <AnimatePresence mode="wait">
+        {!topPrediction ? (
+          <motion.div
+            key="waiting"
+            initial={{ opacity: 0, y: 5, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 5, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white/90 text-neutral-500 text-xs px-4 py-2 rounded-md border border-neutral-200 shadow-sm font-medium backdrop-blur-sm"
+          >
+            Posisikan tangan di depan kamera...
+          </motion.div>
+        ) : (
+          <motion.div
+            key={topPrediction.label}
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="flex flex-col items-center gap-2"
+          >
+            <div className="bg-white text-neutral-900 text-6xl font-semibold px-8 py-4 rounded-xl shadow-lg border border-neutral-200 tracking-tight">
+              {topPrediction.label.toUpperCase()}
             </div>
-          ))}
-        </div>
-      )}
+            <div className="bg-white/90 text-neutral-500 text-xs font-medium px-3 py-1.5 rounded-md border border-neutral-200 shadow-sm backdrop-blur-sm">
+              {getConfidenceLabel(topPrediction.confidence)} · {Math.round(topPrediction.confidence * 100)}%
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

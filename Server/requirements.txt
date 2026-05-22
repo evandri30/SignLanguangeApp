@@ -4,3 +4,6 @@ ultralytics
 Pillow
 numpy
 python-multipart
+sqlalchemy
+psycopg2-binary
+pydantic-settings

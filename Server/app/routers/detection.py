@@ -59,9 +59,14 @@ async def websocket_detect(ws: WebSocket, client_id: str):
             try:
                 response = await process_frame(b64_frame, frame_id)
                 await ws.send_json(response.model_dump())
+            except WebSocketDisconnect:
+                raise
             except Exception as exc:
                 logger.warning(f"Error for client {client_id}: {exc}")
-                await ws.send_json({"status": "error", "message": str(exc)})
+                try:
+                    await ws.send_json({"status": "error", "message": str(exc)})
+                except Exception:
+                    pass
 
     except WebSocketDisconnect:
         pass

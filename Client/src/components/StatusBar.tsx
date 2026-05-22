@@ -1,38 +1,55 @@
 import type { WSStatus } from "@/types/detection";
+import { motion, AnimatePresence } from "motion/react";
+
 
 interface StatusBarProps {
   wsStatus: WSStatus;
   inferenceMs: number | null;
   cameraReady: boolean;
 }
- 
-const STATUS_CONFIG: Record<WSStatus, { label: string; color: string }> = {
-  disconnected: { label: "Terputus", color: "bg-gray-500" },
-  connecting:   { label: "Menghubungkan...", color: "bg-yellow-500 animate-pulse" },
-  connected:    { label: "Terhubung", color: "bg-green-500" },
-  error:        { label: "Error Koneksi", color: "bg-red-500" },
+
+const STATUS_CONFIG: Record<WSStatus, { label: string; dot: string }> = {
+  disconnected: { label: "Cermin terputus", dot: "bg-neutral-300" },
+  connecting: { label: "Menghubungkan...", dot: "bg-yellow-400" },
+  connected: { label: "Aktif & siap praktik", dot: "bg-green-500" },
+  error: { label: "Koneksi bermasalah", dot: "bg-red-400" },
 };
- 
-export function StatusBar({ wsStatus, inferenceMs, cameraReady }: StatusBarProps) {
-  const { label, color } = STATUS_CONFIG[wsStatus];
- 
+
+export function StatusBar({ wsStatus, cameraReady, inferenceMs }: StatusBarProps) {
+  const { label, dot } = STATUS_CONFIG[wsStatus];
+
   return (
-    <div className="flex items-center gap-4 px-4 py-2 bg-gray-900 text-sm font-mono text-white">
+    <div className="flex items-center justify-between px-6 py-2.5 bg-white border-b border-neutral-200 text-xs text-neutral-500 select-none">
+      {/* Status Dot & Label */}
       <div className="flex items-center gap-2">
-        <span className={`w-2.5 h-2.5 rounded-full ${color}`} />
-        <span>WS: {label}</span>
+        <span className={`h-1.5 w-1.5 rounded-full ${dot} ${wsStatus === "connecting" ? "animate-pulse" : ""}`} />
+        
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={wsStatus}
+            initial={{ opacity: 0, x: -3 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 3 }}
+            transition={{ duration: 0.15 }}
+            className="font-medium text-neutral-500"
+          >
+            {label}
+          </motion.span>
+        </AnimatePresence>
+
+        {wsStatus === "connected" && inferenceMs !== null && (
+          <span className="text-[10px] text-neutral-400 ml-1 font-sans">
+            · {inferenceMs}ms
+          </span>
+        )}
       </div>
- 
-      <div className="flex items-center gap-2">
-        <span className={`w-2.5 h-2.5 rounded-full ${cameraReady ? "bg-green-500" : "bg-gray-500"}`} />
-        <span>Cam: {cameraReady ? "Aktif" : "Mati"}</span>
-      </div>
- 
-      {inferenceMs !== null && (
-        <span className="ml-auto text-gray-400">
-          ⚡ {inferenceMs.toFixed(1)} ms
+
+      {/* Camera Status */}
+      <div className="flex items-center gap-1 text-neutral-400">
+        <span className={cameraReady ? "text-neutral-600 font-medium" : ""}>
+          Kamera: {cameraReady ? "Aktif" : "Nonaktif"}
         </span>
-      )}
+      </div>
     </div>
   );
 }
