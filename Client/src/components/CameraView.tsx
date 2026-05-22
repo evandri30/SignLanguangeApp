@@ -1,7 +1,7 @@
 interface CameraViewProps {
-  videoRef: React.RefObject<HTMLVideoElement>;
+  videoRef: React.RefObject<HTMLVideoElement | null>;
 }
- 
+
 export function CameraView({ videoRef }: CameraViewProps) {
   return (
     <video
