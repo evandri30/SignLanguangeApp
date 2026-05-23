@@ -1,7 +1,9 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { SibiAlphabetPicker } from "@/components/SibiAlphabetPicker";
-import { ChevronLeft, ChevronRight, Info, BookOpen, Compass } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { SibiInfoHeader } from "@/components/SibiInfoHeader"
+import { Footer } from "@/components/Footer"; 
 
 interface SibiLetterData {
   id: number;
@@ -9,17 +11,16 @@ interface SibiLetterData {
   name: string;
   description: string;
   gesture_steps: string[];
-  image_url: string;
 }
-
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
-
+ 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+ 
 export function SibiInfoPage() {
   const [letters, setLetters] = useState<SibiLetterData[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+ 
   useEffect(() => {
     async function fetchSibiLetters() {
       try {
@@ -37,20 +38,19 @@ export function SibiInfoPage() {
     }
     fetchSibiLetters();
   }, []);
-
+ 
   const selectedLetter = letters[selectedIndex] ?? null;
-
+ 
   const goNext = useCallback(() => {
     if (letters.length === 0) return;
     setSelectedIndex((i) => (i + 1) % letters.length);
   }, [letters.length]);
-
+ 
   const goPrev = useCallback(() => {
     if (letters.length === 0) return;
     setSelectedIndex((i) => (i - 1 + letters.length) % letters.length);
   }, [letters.length]);
-
-  // Keyboard navigation
+ 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "ArrowRight") goNext();
@@ -59,175 +59,161 @@ export function SibiInfoPage() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [goNext, goPrev]);
-
+ 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 font-sans">
-
-      {/* ── PAGE HEADER ── */}
-      <div className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-10">
-          <p className="text-xs font-medium text-neutral-400 mb-2 flex items-center gap-1.5">
-            <Compass className="h-3.5 w-3.5" />
-            Panduan Belajar Mandiri
-          </p>
-          <h1 className="text-2xl font-semibold text-neutral-900 tracking-tight">
-            Informasi Abjad SIBI
-          </h1>
-          <p className="mt-2 text-sm text-neutral-500 max-w-xl leading-relaxed">
-            Panduan visual abjad A–Z Sistem Isyarat Bahasa Indonesia.
-          </p>
+    <div className="min-h-screen bg-white text-neutral-900">
+      <SibiInfoHeader />
+ 
+      {loading && (
+        <div className="flex items-center justify-center py-36 gap-3">
+          <div className="h-4 w-4 border-2 border-neutral-200 border-t-neutral-700 rounded-full animate-spin" />
+          <span className="text-sm text-neutral-400">Memuat data abjad...</span>
         </div>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-6 py-10 flex flex-col gap-12">
-
-        {/* ── LOADING ── */}
-        {loading && (
-          <div className="flex items-center justify-center py-24 gap-3">
-            <div className="h-5 w-5 border-2 border-neutral-300 border-t-neutral-800 rounded-full animate-spin" />
-            <span className="text-sm text-neutral-400">Memuat data abjad...</span>
+      )}
+ 
+      {error && (
+        <div className="flex flex-col items-center justify-center py-28 text-center gap-4 px-6">
+          <div className="text-2xl select-none">⚠️</div>
+          <div>
+            <p className="text-sm font-semibold text-neutral-900">Server belum tersedia</p>
+            <p className="text-xs text-neutral-400 mt-1.5 max-w-xs leading-relaxed">{error}</p>
           </div>
-        )}
-
-        {/* ── ERROR ── */}
-        {error && (
-          <div className="flex flex-col items-center justify-center py-16 text-center gap-4 max-w-sm mx-auto">
-            <div className="text-2xl">⚠️</div>
-            <div>
-              <p className="text-sm font-medium text-neutral-900">Server belum tersedia</p>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-neutral-900 text-white text-sm font-semibold rounded-md hover:bg-neutral-700 transition-colors"
+          >
+            Coba lagi
+          </button>
+        </div>
+      )}
+ 
+      {!loading && !error && letters.length > 0 && (
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <div className="flex flex-col lg:flex-row gap-14">
+            <div className="w-full lg:w-56 lg:shrink-0">
+              <div className="lg:sticky lg:top-20">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                  Pilih Huruf
+                </p>
+                <SibiAlphabetPicker
+                  letters={letters}
+                  selectedLetter={selectedLetter}
+                  onSelect={(item) => {
+                    const idx = letters.findIndex((l) => l.id === item.id);
+                    if (idx !== -1) setSelectedIndex(idx);
+                  }}
+                />
+                <p className="mt-5 text-[10px] text-neutral-300 font-medium leading-relaxed">
+                  Gunakan tombol ← → untuk navigasi antar huruf
+                </p>
+              </div>
             </div>
-            <button
-              onClick={() => window.location.reload()}
-              className="px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-md hover:bg-neutral-700 transition-colors"
-            >
-              Coba lagi
-            </button>
-          </div>
-        )}
-
-        {/* ── MAIN CONTENT ── */}
-        {!loading && !error && letters.length > 0 && (
-          <>
-            {/* Alphabet Picker */}
-            <div className="flex flex-col gap-4">
-              <SibiAlphabetPicker
-                letters={letters}
-                selectedLetter={selectedLetter}
-                onSelect={(item) => {
-                  const idx = letters.findIndex((l) => l.id === item.id);
-                  if (idx !== -1) setSelectedIndex(idx);
-                }}
-              />
-            </div>
-
-            {/* ── CENTERED SHOWCASE ── */}
+ 
             {selectedLetter && (
-              <div className="flex flex-col gap-8">
-
-                {/* Navigation + Big Letter */}
-                <div className="flex items-center justify-between">
-                  <button
-                    onClick={goPrev}
-                    className="flex items-center gap-1.5 px-3 py-2 text-sm text-neutral-500 hover:text-neutral-900 border border-neutral-200 rounded-md hover:border-neutral-400 transition-all cursor-pointer"
+              <div className="flex-1 min-w-0">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedLetter.letter}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
                   >
-                    <ChevronLeft className="h-4 w-4" />
-                    <span className="hidden sm:inline">
-                      {letters[(selectedIndex - 1 + letters.length) % letters.length]?.letter.toUpperCase()}
-                    </span>
-                  </button>
-
-                  {/* Center: Big letter display with smooth fade & transition */}
-                  <div className="flex flex-col items-center gap-3 min-w-35">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={selectedLetter.letter}
-                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="flex flex-col items-center gap-3"
-                      >
-                        <div className="flex items-center justify-center h-32 w-32 rounded-2xl border border-neutral-200 bg-neutral-50 shadow-xs">
-                          <span className="text-7xl font-semibold text-neutral-900 select-none">
-                            {selectedLetter.letter.toUpperCase()}
-                          </span>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-base font-semibold text-neutral-900">{selectedLetter.name}</p>
-                          <p className="text-xs text-neutral-400 mt-0.5">
-                            {selectedIndex + 1} / {letters.length}
+                    <div className="flex items-start justify-between mb-8 gap-4">
+                      <div className="flex items-baseline gap-5 min-w-0">
+                        <span className="text-8xl font-extrabold text-neutral-900 leading-none tracking-tighter shrink-0">
+                          {selectedLetter.letter.toUpperCase()}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-xl font-bold text-neutral-700 leading-snug">
+                            {selectedLetter.name}
+                          </p>
+                          <p className="text-xs text-neutral-400 font-medium mt-0.5 tabular-nums">
+                            {String(selectedIndex + 1).padStart(2, "0")} / {String(letters.length).padStart(2, "0")}
                           </p>
                         </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-
-                  <button
-                    onClick={goNext}
-                    className="flex items-center gap-1.5 px-3 py-2 text-sm text-neutral-500 hover:text-neutral-900 border border-neutral-200 rounded-md hover:border-neutral-400 transition-all cursor-pointer"
-                  >
-                    <span className="hidden sm:inline">
-                      {letters[(selectedIndex + 1) % letters.length]?.letter.toUpperCase()}
-                    </span>
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-neutral-100" />
-
-                {/* Detail content: description + steps with smooth crossfade */}
-                <div className="relative min-h-35">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={selectedLetter.letter}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.18, ease: "easeInOut" }}
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-                    >
-                      {/* Description */}
-                      <div className="flex flex-col gap-3">
-                        <div className="flex items-center gap-2 text-xs font-medium text-neutral-400">
-                          <Info className="h-3.5 w-3.5" />
-                          Deskripsi Gerakan
+                      </div>
+ 
+                      <div className="flex items-center gap-1.5 shrink-0 mt-1">
+                        <button
+                          onClick={goPrev}
+                          aria-label="Huruf sebelumnya"
+                          className="h-8 w-8 flex items-center justify-center rounded-md border border-neutral-200 text-neutral-400 hover:border-neutral-400 hover:text-neutral-900 transition-all"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={goNext}
+                          aria-label="Huruf berikutnya"
+                          className="h-8 w-8 flex items-center justify-center rounded-md border border-neutral-200 text-neutral-400 hover:border-neutral-400 hover:text-neutral-900 transition-all"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+ 
+                    <div className="border-t border-neutral-100 mb-8" />
+ 
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+                      <div className="md:col-span-1 bg-neutral-50 rounded-2xl border border-neutral-100 p-6 flex flex-col items-center justify-center aspect-square shadow-sm overflow-hidden group">
+                        <img
+                          src={`/images/sibi/${selectedLetter.letter.toLowerCase()}.jpg`}
+                          alt={`Isyarat tangan untuk ${selectedLetter.name}`}
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                            const parent = (e.target as HTMLImageElement).parentElement;
+                            if (parent) {
+                              const fallbackText = parent.querySelector('.fallback-text');
+                              if (fallbackText) (fallbackText as HTMLElement).style.display = 'block';
+                            }
+                          }}
+                        />
+                        <div className="fallback-text hidden text-center">
+                          <span className="text-3xl block mb-2 opacity-40">🔤</span>
+                          <span className="text-neutral-400 text-xs font-semibold uppercase tracking-wider">
+                            Gambar {selectedLetter.letter.toUpperCase()}
+                          </span>
                         </div>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                          {selectedLetter.description}
-                        </p>
                       </div>
 
-                      {/* Steps */}
-                      {selectedLetter.gesture_steps?.length > 0 ? (
-                        <div className="flex flex-col gap-3">
-                          <div className="flex items-center gap-2 text-xs font-medium text-neutral-400">
-                            <BookOpen className="h-3.5 w-3.5" />
-                            Langkah Pembentukan
-                          </div>
-                          <ol className="flex flex-col gap-2.5">
-                            {selectedLetter.gesture_steps.map((step, idx) => (
-                              <li key={idx} className="flex items-start gap-3 text-sm text-neutral-700">
-                                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-white text-[10px] font-semibold mt-0.5">
-                                  {idx + 1}
-                                </span>
-                                <span className="leading-relaxed">{step}</span>
-                              </li>
-                            ))}
-                          </ol>
+                      <div className="md:col-span-2 space-y-8">
+                        <div>
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                            Deskripsi Gerakan
+                          </p>
+                          <p className="text-sm text-neutral-600 leading-relaxed">
+                            {selectedLetter.description}
+                          </p>
                         </div>
-                      ) : (
-                        <div className="flex flex-col gap-3" />
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+
+                        {selectedLetter.gesture_steps?.length > 0 && (
+                          <div>
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                              Langkah Pembentukan
+                            </p>
+                            <ol className="flex flex-col gap-3.5">
+                              {selectedLetter.gesture_steps.map((step, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-sm text-neutral-600">
+                                  <span className="text-[10px] font-bold text-neutral-300 mt-0.5 shrink-0 tabular-nums w-4">
+                                    {String(idx + 1).padStart(2, "0")}
+                                  </span>
+                                  <span className="leading-relaxed">{step}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             )}
-          </>
-        )}
-      </div>
+          </div>
+        </div>
+      )}
+      <Footer />
     </div>
   );
 }

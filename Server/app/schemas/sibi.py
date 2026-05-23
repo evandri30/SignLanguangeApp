@@ -7,7 +7,6 @@ class SibiLetterResponse(BaseModel):
     name: str
     description: str
     gesture_steps: Optional[List[str]] = None
-    image_url: Optional[str] = None
 
     class Config:
         from_attributes = True

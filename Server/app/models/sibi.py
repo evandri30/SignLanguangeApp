@@ -8,5 +8,4 @@ class SibiLetter(Base):
     letter = Column(String(1), unique=True, index=True, nullable=False)  
     name = Column(String(50), nullable=False)                           
     description = Column(Text, nullable=False)                        
-    gesture_steps = Column(JSON, nullable=True)                         
-    image_url = Column(String(255), nullable=True)                      
+    gesture_steps = Column(JSON, nullable=True)
