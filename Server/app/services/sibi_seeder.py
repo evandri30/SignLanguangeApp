@@ -13,8 +13,7 @@ SIBI_DATA = [
             "Kepalkan kelima jari tangan kanan Anda.",
             "Posisikan ibu jari tegak lurus dan rapat di samping luar jari telunjuk.",
             "Hadapkan telapak tangan ke depan menuju lawan bicara."
-        ],
-        "image_url": "/images/sibi/a.svg"
+        ]
     },
     {
         "letter": "b",
@@ -24,19 +23,17 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk, tengah, manis, dan kelingking secara rapat ke atas.",
             "Tekuk ibu jari melintang rapat di depan telapak tangan Anda.",
             "Hadapkan telapak tangan ke depan."
-        ],
-        "image_url": "/images/sibi/b.svg"
+        ]
     },
     {
         "letter": "c",
         "name": "Huruf C",
         "description": "Lengkungkan kelima jari tangan kanan menyerupai bentuk huruf 'C' atau setengah lingkaran terbuka ke kiri.",
         "gesture_steps": [
-            "Lengkungkan keempat jari dan ibu jari Anda secara bersamaan.",
+            "Lengkungkan keempat jari and ibu jari Anda secara bersamaan.",
             "Atur jarak sehingga membentuk lengkungan setengah lingkaran sempurna.",
             "Arahkan bukaan lengkungan ke arah kiri Anda (ke dalam)."
-        ],
-        "image_url": "/images/sibi/c.svg"
+        ]
     },
     {
         "letter": "d",
@@ -46,8 +43,7 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk lurus ke atas.",
             "Tekuk jari tengah, manis, dan kelingking ke bawah.",
             "Satukan ujung ketiga jari tersebut dengan ibu jari sehingga membentuk lingkaran."
-        ],
-        "image_url": "/images/sibi/d.svg"
+        ]
     },
     {
         "letter": "e",
@@ -57,8 +53,7 @@ SIBI_DATA = [
             "Tekuk jari telunjuk, tengah, manis, dan kelingking ke arah dalam telapak tangan setengah mengepal rapat.",
             "Lipat ibu jari melintang rata di bawah kuku keempat jari yang menekuk.",
             "Pastikan bentuknya terlihat kompak seperti persegi dari depan."
-        ],
-        "image_url": "/images/sibi/e.svg"
+        ]
     },
     {
         "letter": "f",
@@ -68,8 +63,7 @@ SIBI_DATA = [
             "Satukan ujung ibu jari dengan ujung jari telunjuk membentuk lingkaran.",
             "Tegakkan jari tengah, manis, dan kelingking rapat lurus ke atas.",
             "Hadapkan telapak tangan ke depan."
-        ],
-        "image_url": "/images/sibi/f.svg"
+        ]
     },
     {
         "letter": "g",
@@ -79,8 +73,7 @@ SIBI_DATA = [
             "Kepalkan jari tengah, manis, dan kelingking ke telapak tangan.",
             "Luruskan jari telunjuk mendatar ke arah kiri/samping.",
             "Bentangkan ibu jari sejajar dengan jari telunjuk di bagian atasnya."
-        ],
-        "image_url": "/images/sibi/g.svg"
+        ]
     },
     {
         "letter": "h",
@@ -90,8 +83,7 @@ SIBI_DATA = [
             "Kepalkan jari manis dan kelingking Anda.",
             "Bentangkan jari telunjuk dan jari tengah sejajar lurus ke arah samping.",
             "Posisikan ibu jari melipat di atas jari manis yang mengepal."
-        ],
-        "image_url": "/images/sibi/h.svg"
+        ]
     },
     {
         "letter": "i",
@@ -101,8 +93,7 @@ SIBI_DATA = [
             "Kepalkan erat jari telunjuk, tengah, manis, dan ibu jari.",
             "Tegakkan jari kelingking lurus ke atas.",
             "Hadapkan telapak tangan ke depan."
-        ],
-        "image_url": "/images/sibi/i.svg"
+        ]
     },
     {
         "letter": "j",
@@ -112,19 +103,17 @@ SIBI_DATA = [
             "Mulai dengan posisi tangan membentuk isyarat huruf I (hanya kelingking yang tegak).",
             "Gerakkan tangan Anda ke bawah, lalu lengkungkan ke kanan atas membentuk pola huruf J di udara.",
             "Akhiri gerakan dengan kelingking kembali tegak di posisi lebih tinggi."
-        ],
-        "image_url": "/images/sibi/j.svg"
+        ]
     },
     {
         "letter": "k",
         "name": "Huruf K",
         "description": "Tegakkan telunjuk dan jari tengah terbuka membentuk huruf 'V'. Letakkan ujung ibu jari tepat di antara celah jari telunjuk dan jari tengah tersebut.",
         "gesture_steps": [
-            "Tegakkan jari telunjuk dan jari tengah terpisah membentuk sudut (huruf V).",
+            "Tegakkan jari telunjuk and jari tengah terpisah membentuk sudut (huruf V).",
             "Posisikan ibu jari tegak menempel di antara celah kedua jari tersebut.",
-            "Tekuk jari manis dan kelingking rapat ke telapak tangan."
-        ],
-        "image_url": "/images/sibi/k.svg"
+            "Tekuk jari manis and kelingking rapat ke telapak tangan."
+        ]
     },
     {
         "letter": "l",
@@ -134,8 +123,7 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk lurus ke atas.",
             "Bentangkan ibu jari horizontal ke samping kanan membentuk sudut siku-siku.",
             "Tekuk rapat jari tengah, manis, dan kelingking ke dalam telapak tangan."
-        ],
-        "image_url": "/images/sibi/l.svg"
+        ]
     },
     {
         "letter": "m",
@@ -145,19 +133,17 @@ SIBI_DATA = [
             "Tekuk jari telunjuk, tengah, dan manis mengepal ke bawah.",
             "Selipkan ibu jari di bawah ketiga jari tersebut.",
             "Munculkan ujung ibu jari di sela-sela antara jari manis dan jari kelingking."
-        ],
-        "image_url": "/images/sibi/m.svg"
+        ]
     },
     {
         "letter": "n",
         "name": "Huruf N",
         "description": "Lipat ibu jari ke dalam di bawah jari telunjuk dan tengah yang ditekuk mengepal, sehingga ujung ibu jari menyembul keluar di celah antara jari tengah dan manis.",
         "gesture_steps": [
-            "Tekuk jari telunjuk dan jari tengah mengepal ke bawah.",
+            "Tekuk jari telunjuk and jari tengah mengepal ke bawah.",
             "Selipkan ibu jari di bawah kedua jari tersebut.",
-            "Munculkan ujung ibu jari di celah antara jari tengah dan jari manis."
-        ],
-        "image_url": "/images/sibi/n.svg"
+            "Munculkan ujung ibu jari di celah antara jari tengah and jari manis."
+        ]
     },
     {
         "letter": "o",
@@ -167,8 +153,7 @@ SIBI_DATA = [
             "Lengkungkan seluruh jari-jari tangan Anda secara melingkar.",
             "Satukan ujung seluruh jari dengan ujung ibu jari.",
             "Pastikan celah di bagian tengah membentuk lingkaran sempurna."
-        ],
-        "image_url": "/images/sibi/o.svg"
+        ]
     },
     {
         "letter": "p",
@@ -178,8 +163,7 @@ SIBI_DATA = [
             "Bentuk konfigurasi tangan seperti huruf K.",
             "Putar pergelangan tangan Anda ke bawah.",
             "Posisikan jari telunjuk lurus mengarah ke lantai, dengan jari tengah mengikuti miring."
-        ],
-        "image_url": "/images/sibi/p.svg"
+        ]
     },
     {
         "letter": "q",
@@ -189,8 +173,7 @@ SIBI_DATA = [
             "Hadapkan telapak tangan ke bawah.",
             "Luruskan jari telunjuk dan ibu jari ke bawah secara terpisah.",
             "Posisikan seperti menjepit sesuatu ke arah bawah, dengan tiga jari lainnya mengepal rapat."
-        ],
-        "image_url": "/images/sibi/q.svg"
+        ]
     },
     {
         "letter": "r",
@@ -200,8 +183,7 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk dan tengah Anda.",
             "Silangkan jari tengah menumpuk rapat di depan jari telunjuk.",
             "Tekuk ibu jari di atas jari manis yang terlipat mengepal di bawah."
-        ],
-        "image_url": "/images/sibi/r.svg"
+        ]
     },
     {
         "letter": "s",
@@ -211,8 +193,7 @@ SIBI_DATA = [
             "Kepalkan kelima jari Anda membentuk tinju rapat.",
             "Lipat ibu jari melintang di depan jari telunjuk, tengah, dan manis.",
             "Hadapkan kepalan tangan Anda ke depan."
-        ],
-        "image_url": "/images/sibi/s.svg"
+        ]
     },
     {
         "letter": "t",
@@ -220,32 +201,29 @@ SIBI_DATA = [
         "description": "Kepalkan tangan dan selipkan ibu jari ke dalam di celah antara jari telunjuk dan jari tengah, sehingga ujung ibu jari menyembul ke depan di antara keduanya.",
         "gesture_steps": [
             "Tekuk jari-jari tangan Anda mengepal.",
-            "Selipkan ibu jari ke atas di sela antara jari telunjuk dan jari tengah.",
+            "Selipkan ibu jari ke atas di sela antara jari telunjuk and jari tengah.",
             "Biarkan ujung ibu jari menonjol keluar di sela kedua jari tersebut."
-        ],
-        "image_url": "/images/sibi/t.svg"
+        ]
     },
     {
         "letter": "u",
         "name": "Huruf U",
         "description": "Tegakkan jari telunjuk dan jari tengah rapat bersama-sama lurus ke atas. Jari manis, kelingking, dan ibu jari dilipat rapat ke dalam.",
         "gesture_steps": [
-            "Tegakkan jari telunjuk dan jari tengah rapat berdampingan ke atas.",
-            "Lipat jari manis dan kelingking ke dalam telapak tangan.",
+            "Tegakkan jari telunjuk and jari tengah rapat berdampingan ke atas.",
+            "Lipat jari manis and kelingking ke dalam telapak tangan.",
             "Posisikan ibu jari menekuk menempel rapat di atas jari manis."
-        ],
-        "image_url": "/images/sibi/u.svg"
+        ]
     },
     {
         "letter": "v",
         "name": "Huruf V",
         "description": "Tegakkan jari telunjuk dan jari tengah terbuka lebar membentuk huruf 'V' ke atas. Jari manis, kelingking, dan ibu jari dilipat rapat.",
         "gesture_steps": [
-            "Tegakkan jari telunjuk dan jari tengah terbuka membentuk sudut.",
-            "Lipat jari manis dan kelingking ke telapak tangan.",
+            "Tegakkan jari telunjuk and jari tengah terbuka membentuk sudut.",
+            "Lipat jari manis and kelingking ke telapak tangan.",
             "Kunci jari manis dengan ibu jari di depannya."
-        ],
-        "image_url": "/images/sibi/v.svg"
+        ]
     },
     {
         "letter": "w",
@@ -255,8 +233,7 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk, tengah, dan manis terbuka menyebar ke atas.",
             "Tekuk jari kelingking rapat ke telapak tangan.",
             "Tahan ujung kelingking dengan ibu jari Anda."
-        ],
-        "image_url": "/images/sibi/w.svg"
+        ]
     },
     {
         "letter": "x",
@@ -266,8 +243,7 @@ SIBI_DATA = [
             "Kepalkan seluruh jari kecuali telunjuk.",
             "Angkat telunjuk tegak lalu tekuk sendi bagian atasnya membentuk kail melengkung.",
             "Hadapkan punggung jari telunjuk tersebut ke arah lawan bicara."
-        ],
-        "image_url": "/images/sibi/x.svg"
+        ]
     },
     {
         "letter": "y",
@@ -277,8 +253,7 @@ SIBI_DATA = [
             "Bentangkan ibu jari selebar mungkin ke kiri/samping.",
             "Bentangkan jari kelingking selebar mungkin ke kanan/samping.",
             "Tekuk rapat jari telunjuk, tengah, dan manis di tengah telapak tangan."
-        ],
-        "image_url": "/images/sibi/y.svg"
+        ]
     },
     {
         "letter": "z",
@@ -288,8 +263,7 @@ SIBI_DATA = [
             "Tegakkan jari telunjuk lurus ke atas dengan jari lainnya dikepalkan.",
             "Gerakkan tangan membentuk garis horizontal ke kanan di udara.",
             "Tarik garis diagonal ke bawah-kiri, kemudian garis horizontal ke kanan lagi untuk menyempurnakan huruf Z."
-        ],
-        "image_url": "/images/sibi/z.svg"
+        ]
     }
 ]
 
@@ -304,8 +278,7 @@ def seed_sibi_data(db: Session):
                     letter=item["letter"],
                     name=item["name"],
                     description=item["description"],
-                    gesture_steps=item["gesture_steps"],
-                    image_url=item["image_url"]
+                    gesture_steps=item["gesture_steps"]
                 )
                 db.add(letter)
             db.commit()

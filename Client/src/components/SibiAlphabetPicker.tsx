@@ -5,16 +5,16 @@ interface LetterItem {
   letter: string;
   name: string;
 }
-
+ 
 interface SibiAlphabetPickerProps {
   letters: LetterItem[];
   selectedLetter: LetterItem | null;
   onSelect: (letter: LetterItem) => void;
 }
-
+ 
 export function SibiAlphabetPicker({ letters, selectedLetter, onSelect }: SibiAlphabetPickerProps) {
   return (
-    <div className="flex flex-wrap gap-1.5 select-none">
+    <div className="grid grid-cols-7 gap-1 select-none">
       {letters.map((item) => {
         const isSelected = selectedLetter?.id === item.id;
         return (
@@ -22,21 +22,22 @@ export function SibiAlphabetPicker({ letters, selectedLetter, onSelect }: SibiAl
             key={item.id}
             onClick={() => onSelect(item)}
             title={item.name}
-            className="relative h-9 w-9 rounded-md text-sm font-medium cursor-pointer focus:outline-none border border-neutral-200"
+            className="relative aspect-square flex items-center justify-center rounded text-xs font-semibold cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400"
           >
-            {/* Sliding backdrop for active letter */}
             {isSelected && (
               <motion.span
                 layoutId="activeLetterBackdrop"
-                transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                className="absolute inset-0 rounded-md bg-neutral-900 border border-neutral-900"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="absolute inset-0 rounded bg-neutral-900"
               />
             )}
-            
-            {/* Letter Text */}
-            <span className={`relative z-10 ${
-              isSelected ? "text-white" : "text-neutral-500 hover:text-neutral-900"
-            }`}>
+            <span
+              className={`relative z-10 transition-colors duration-100 ${
+                isSelected
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-neutral-800"
+              }`}
+            >
               {item.letter.toUpperCase()}
             </span>
           </button>
