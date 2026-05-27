@@ -4,14 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { SibiInfoHeader } from "@/components/SibiInfoHeader"
 import { Footer } from "@/components/Footer"; 
-
-interface SibiLetterData {
-  id: number;
-  letter: string;
-  name: string;
-  description: string;
-  gesture_steps: string[];
-}
+import type { SibiLetterData } from "@/types/sibi";
  
 const API_BASE_URL = import.meta.env.VITE_API_URL;
  
@@ -103,9 +96,6 @@ export function SibiInfoPage() {
                     if (idx !== -1) setSelectedIndex(idx);
                   }}
                 />
-                <p className="mt-5 text-[10px] text-neutral-300 font-medium leading-relaxed">
-                  Gunakan tombol ← → untuk navigasi antar huruf
-                </p>
               </div>
             </div>
  
