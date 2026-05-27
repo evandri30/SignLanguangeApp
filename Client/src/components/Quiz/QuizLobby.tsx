@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Play, Loader2 } from "lucide-react";
-import { InfoCard } from "@/components/InfoCard";
+import { InfoCard } from "@/components/Quiz/InfoCard";
 import type { QuizLobbyProps } from "@/types/quiz";
 
 
@@ -21,9 +21,6 @@ export function QuizLobby({
       className="space-y-12"
     >
       <div className="text-center space-y-4 max-w-xl mx-auto">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-xs font-semibold uppercase tracking-wider">
-          🎯 Uji Pemahaman SIBI
-        </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-neutral-900">
           Kuis Abjad SIBI
         </h1>

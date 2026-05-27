@@ -3,7 +3,8 @@ import { Navbar } from "./components/Navbar";
 import { DetectionPage } from "./pages/DetectionPage";
 import { SibiInfoPage } from "./pages/SibiInfoPage";
 import { QuizPage } from "./pages/QuizPage";
- 
+import { Home } from "./pages/Home";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -11,10 +12,11 @@ export default function App() {
         <Navbar />
         <main className="flex-1">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/detect" element={<DetectionPage />} />
             <Route path="/sibi-info" element={<SibiInfoPage />} />
             <Route path="/quiz" element={<QuizPage />} />
-            <Route path="*" element={<Navigate to="/sibi-info" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useCamera } from "@/hooks/useCamera";
 import { useWebSocket } from "@/hooks/useWebSocket";
-import {DetectionHeader} from "@/components/DetectionHeader"
-import { CameraView } from "@/components/CameraView";
-import { DetectionOverlay } from "@/components/DetectionOverlay";
-import { StatusBar } from "@/components/StatusBar";
+import {DetectionHeader} from "@/components/Detection/DetectionHeader"
+import { CameraView } from "@/components/Detection/CameraView";
+import { DetectionOverlay } from "@/components/Detection/DetectionOverlay";
+import { StatusBar } from "@/components/Sibi/StatusBar";
 import {Footer} from "@/components/Footer";
  
 export function DetectionPage() {

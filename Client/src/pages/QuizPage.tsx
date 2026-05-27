@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 import { Footer } from "@/components/Footer";
-import { QuizLobby } from "@/components/QuizLobby";
-import { QuizActive } from "@/components/QuizActive";
-import { QuizFinished } from "@/components/QuizFinished";
+import { QuizLobby } from "@/components/Quiz/QuizLobby";
+import { QuizActive } from "@/components/Quiz/QuizActive";
+import { QuizFinished } from "@/components/Quiz/QuizFinished";
 import type { QuizHistoryItem, QuizQuestion } from "@/types/quiz";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";

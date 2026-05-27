@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { motion } from "motion/react";
  
 export function Navbar() {
@@ -12,13 +12,15 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-sm font-extrabold text-neutral-900 tracking-widest uppercase">
+            <Link to="/" className="flex items-center gap-3">
+              <span className="text-sm font-extrabold text-neutral-900 tracking-widest uppercase">
               SIBI
             </span>
             <span className="h-3.5 w-px bg-neutral-200 hidden sm:block" />
             <span className="text-xs text-neutral-400 font-medium hidden sm:block">
               Sistem Isyarat Bahasa Indonesia
             </span>
+            </Link>
           </div>
  
           <div className="flex items-center gap-7">

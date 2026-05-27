@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
-import { SibiAlphabetPicker } from "@/components/SibiAlphabetPicker";
+import { SibiAlphabetPicker } from "@/components/Sibi/SibiAlphabetPicker";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { SibiInfoHeader } from "@/components/SibiInfoHeader"
+import { SibiInfoHeader } from "@/components/Sibi/SibiInfoHeader"
 import { Footer } from "@/components/Footer"; 
 import type { SibiLetterData } from "@/types/sibi";
  
