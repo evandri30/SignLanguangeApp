@@ -7,7 +7,7 @@ from app.models.quiz import SibiQuizQuestion
 logger = logging.getLogger(__name__)
 
 def seed_quiz_questions(db: Session):
-    """Seed 104 soal pilihan ganda dinamis tentang abjad SIBI ke dalam database jika masih kosong."""
+    """Seed soal ke database"""
     try:
         count = db.query(SibiQuizQuestion).count()
         if count > 0:

@@ -1,16 +1,5 @@
 import { motion } from "motion/react";
-
-interface LetterItem {
-  id: number;
-  letter: string;
-  name: string;
-}
- 
-interface SibiAlphabetPickerProps {
-  letters: LetterItem[];
-  selectedLetter: LetterItem | null;
-  onSelect: (letter: LetterItem) => void;
-}
+import type { SibiAlphabetPickerProps} from "@/types/sibi"
  
 export function SibiAlphabetPicker({ letters, selectedLetter, onSelect }: SibiAlphabetPickerProps) {
   return (

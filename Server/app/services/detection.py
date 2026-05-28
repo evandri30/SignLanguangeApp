@@ -27,7 +27,7 @@ def run_inference(image: Image.Image) -> list[DetectionItem]:
     return detections
 
 async def process_frame(b64_frame: str, frame_id: int | None) -> DetectionResponse:
-    """Fungsi utama yang dipanggil router — semua async handling di sini."""
+    """Memproses frame video menggunakan model deteksi objek"""
     t0 = time.perf_counter()
     image = await asyncio.to_thread(decode_frame, b64_frame)
     detections = await asyncio.to_thread(run_inference, image)

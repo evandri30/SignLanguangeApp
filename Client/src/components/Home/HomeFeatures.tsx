@@ -1,23 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Camera, BookOpen, Trophy, ArrowRight } from "lucide-react";
+import {containerVariants, itemVariants} from "@/utils/home"
 
 export function HomeFeatures() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-  };
-
   return (
     <section className="py-16 md:py-24 bg-neutral-50/50 border-b border-neutral-100">
       <div className="mx-auto max-w-6xl px-6">

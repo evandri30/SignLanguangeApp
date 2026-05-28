@@ -268,7 +268,7 @@ SIBI_DATA = [
 ]
 
 def seed_sibi_data(db: Session):
-    """Seed data SIBI A-Z ke dalam database jika tabel masih kosong."""
+    """Seed data SIBI A-Z ke dalam database."""
     try:
         count = db.query(SibiLetter).count()
         if count == 0:

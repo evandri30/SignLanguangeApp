@@ -1,8 +1,4 @@
-interface InfoCardProps {
-    number: string;
-    title: string;
-    description: string;
-}
+import type {InfoCardProps} from "@/types/quiz"
 
 export function InfoCard({number, title, description}: InfoCardProps) {
     return (

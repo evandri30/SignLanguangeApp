@@ -10,7 +10,7 @@ router = APIRouter(prefix="/sibi", tags=["SIBI Info"])
 
 @router.get("/", response_model=List[SibiLetterResponse])
 def get_all_sibi_letters(db: Session = Depends(get_db)):
-    """Mendapatkan daftar semua huruf SIBI A-Z berurutan secara alfabetis."""
+    """Mendapatkan daftar semua huruf SIBI A-Z"""
     letters = db.query(SibiLetter).order_by(SibiLetter.letter.asc()).all()
     return letters
 
@@ -34,6 +34,6 @@ def get_sibi_letter_detail(letter: str, db: Session = Depends(get_db)):
 
 @router.post("/seed", status_code=status.HTTP_201_CREATED)
 def trigger_seeding(db: Session = Depends(get_db)):
-    """Memicu seeding data SIBI A-Z ke database secara manual."""
+    """Seeding data SIBI A-Z"""
     seed_sibi_data(db)
-    return {"message": "Proses seeding data SIBI berhasil dipicu."}
+    return {"message": "Seeding data SIBI berhasil"}

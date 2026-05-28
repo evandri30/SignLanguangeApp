@@ -1,8 +1,4 @@
-interface HowItWorksProps {
-    number : number
-    title : string
-    description : string
-}
+import type {HowItWorksProps} from "@/types/home"
 
 export function HowItWorksCard({number, title, description} : HowItWorksProps) {
     return (

@@ -37,7 +37,7 @@ def get_quiz_questions(
     db: Session = Depends(get_db),
     quiz_session: Optional[str] = Cookie(None)
 ):
-    """Mengambil 10 pertanyaan pilihan ganda SIBI acak dari database dan menempelkan Cookie Sesi jika belum ada."""
+    """Mengambil 10 pertanyaan pilihan ganda SIBI acak dari database"""
     get_or_create_session(response, quiz_session)
     questions = db.query(SibiQuizQuestion).order_by(func.random()).limit(10).all()
     return questions
@@ -49,7 +49,7 @@ def submit_quiz_score(
     db: Session = Depends(get_db),
     quiz_session: Optional[str] = Cookie(None)
 ):
-    """Menyimpan skor hasil sesi kuis pengguna ke database PostgreSQL berdasarkan Cookie Sesi."""
+    """Menyimpan skor hasil sesi kuis"""
     session_id = get_or_create_session(response, quiz_session)
     
     new_history = SibiQuizHistory(
@@ -69,7 +69,7 @@ def get_quiz_history(
     db: Session = Depends(get_db),
     quiz_session: Optional[str] = Cookie(None)
 ):
-    """Mengambil riwayat skor kuis khusus untuk pengguna aktif berdasarkan Cookie Sesi."""
+    """Mengambil riwayat skor kuis"""
     if not quiz_session:
         return []
     history = (

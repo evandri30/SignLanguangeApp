@@ -1,6 +1,4 @@
-interface CameraViewProps {
-  videoRef: React.RefObject<HTMLVideoElement | null>;
-}
+import type {CameraViewProps} from "@/types/detection"
 
 export function CameraView({ videoRef }: CameraViewProps) {
   return (

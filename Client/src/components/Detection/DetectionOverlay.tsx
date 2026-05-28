@@ -1,10 +1,5 @@
-import type { DetectionItem } from "@/types/detection";
+import type { DetectionOverlayProps } from "@/types/detection";
 import { motion, AnimatePresence } from "motion/react";
- 
-interface DetectionOverlayProps {
-  topPrediction: DetectionItem | null;
-  allDetections: DetectionItem[];
-}
  
 function getConfidenceLabel(conf: number): string {
   if (conf >= 0.9) return "Sangat yakin";

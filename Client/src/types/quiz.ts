@@ -35,3 +35,9 @@ export interface QuizFinishedProps {
   totalQuestions: number;
   startQuiz: () => void;
 }
+
+export interface InfoCardProps {
+    number: string;
+    title: string;
+    description: string;
+}

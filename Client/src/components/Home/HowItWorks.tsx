@@ -1,6 +1,5 @@
 import { HowItWorksCard } from "@/components/Home/HowItWorksCard"
 
-
 export function HowItWorks() {
     return (
         <section className="py-16 md:py-24 border-b border-neutral-100">
@@ -18,7 +17,7 @@ export function HowItWorks() {
                   </div>
         
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        
+
                     <HowItWorksCard
                     number={1}
                     title="Pelajari Abjad Isyarat"

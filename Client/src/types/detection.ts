@@ -24,5 +24,14 @@ export interface DetectionPayload {
   frame: string;       
   frame_id: number;
 }
+
+export interface CameraViewProps {
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+}
+
+export interface DetectionOverlayProps {
+  topPrediction: DetectionItem | null;
+  allDetections: DetectionItem[];
+}
  
 export type WSStatus = "disconnected" | "connecting" | "connected" | "error";

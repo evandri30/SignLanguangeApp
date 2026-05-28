@@ -1,11 +1,5 @@
 import { motion } from "motion/react";
-
-interface SibiLetterCardProps {
-  letter: string;
-  name: string;
-  isSelected: boolean;
-  onClick: () => void;
-}
+import type {SibiLetterCardProps} from "@/types/sibi"
 
 export function SibiLetterCard({ letter, name, isSelected, onClick }: SibiLetterCardProps) {
   return (
