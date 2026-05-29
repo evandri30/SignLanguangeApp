@@ -1,10 +1,4 @@
-import type { WSStatus } from "@/types/detection";
- 
-interface StatusBarProps {
-  wsStatus: WSStatus;
-  inferenceMs: number | null;
-  cameraReady: boolean;
-}
+import type { WSStatus, StatusBarProps } from "@/types/detection";
  
 const DOT_CLASS: Record<WSStatus, string> = {
   disconnected: "bg-neutral-300",

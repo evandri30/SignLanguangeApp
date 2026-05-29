@@ -4,7 +4,7 @@ import { useWebSocket } from "@/hooks/useWebSocket";
 import {DetectionHeader} from "@/components/Detection/DetectionHeader"
 import { CameraView } from "@/components/Detection/CameraView";
 import { DetectionOverlay } from "@/components/Detection/DetectionOverlay";
-import { StatusBar } from "@/components/Sibi/StatusBar";
+import { StatusBar } from "@/components/Detection/StatusBar";
 import {Footer} from "@/components/Footer";
  
 export function DetectionPage() {

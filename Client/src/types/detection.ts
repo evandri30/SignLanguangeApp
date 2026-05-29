@@ -35,3 +35,9 @@ export interface DetectionOverlayProps {
 }
  
 export type WSStatus = "disconnected" | "connecting" | "connected" | "error";
+
+export interface StatusBarProps {
+  wsStatus: WSStatus;
+  inferenceMs: number | null;
+  cameraReady: boolean;
+}

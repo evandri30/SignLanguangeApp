@@ -1,11 +1,6 @@
 import type { DetectionOverlayProps } from "@/types/detection";
 import { motion, AnimatePresence } from "motion/react";
- 
-function getConfidenceLabel(conf: number): string {
-  if (conf >= 0.9) return "Sangat yakin";
-  if (conf >= 0.7) return "Yakin";
-  return "Mendekati";
-}
+import {getConfidenceLabel} from "@/utils/detection"
  
 export function DetectionOverlay({ topPrediction }: DetectionOverlayProps) {
   return (

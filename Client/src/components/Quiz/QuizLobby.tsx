@@ -3,7 +3,6 @@ import { Play, Loader2 } from "lucide-react";
 import { InfoCard } from "@/components/Quiz/InfoCard";
 import type { QuizLobbyProps } from "@/types/quiz";
 
-
 export function QuizLobby({
   loading,
   error,
