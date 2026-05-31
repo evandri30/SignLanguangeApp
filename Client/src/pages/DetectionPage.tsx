@@ -1,30 +1,12 @@
-import { useEffect } from "react";
-import { useCamera } from "@/hooks/useCamera";
-import { useWebSocket } from "@/hooks/useWebSocket";
 import {DetectionHeader} from "@/components/Detection/DetectionHeader"
 import { CameraView } from "@/components/Detection/CameraView";
 import { DetectionOverlay } from "@/components/Detection/DetectionOverlay";
 import { StatusBar } from "@/components/Detection/StatusBar";
 import {Footer} from "@/components/Footer";
+import { useDetection } from "@/hooks/useDetection";
  
 export function DetectionPage() {
-  const { videoRef, isReady, error: cameraError, startCamera, stopCamera } = useCamera();
- 
-  const { status, lastResponse, connect, disconnect } = useWebSocket({
-    videoRef,
-    enabled: isReady,
-    intervalMs: 150,
-  });
- 
-  useEffect(() => {
-    startCamera();
-    return () => stopCamera();
-  }, [startCamera, stopCamera]);
- 
-  useEffect(() => {
-    if (isReady) connect();
-    else disconnect();
-  }, [isReady, connect, disconnect]);
+  const { videoRef, isReady, cameraError, startCamera, status, lastResponse } = useDetection();
  
   return (
     <div className="flex flex-col min-h-screen bg-white text-neutral-900">
