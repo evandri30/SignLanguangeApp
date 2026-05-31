@@ -1,57 +1,21 @@
-import { useState, useCallback, useEffect } from "react";
 import { SibiAlphabetPicker } from "@/components/Sibi/SibiAlphabetPicker";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { SibiInfoHeader } from "@/components/Sibi/SibiInfoHeader"
 import { Footer } from "@/components/Footer"; 
-import type { SibiLetterData } from "@/types/sibi";
- 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
- 
+import { useSibi } from "@/hooks/useSibi";
+
 export function SibiInfoPage() {
-  const [letters, setLetters] = useState<SibiLetterData[]>([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
- 
-  useEffect(() => {
-    async function fetchSibiLetters() {
-      try {
-        setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/api/sibi/`);
-        if (!response.ok) throw new Error("Gagal mengambil data SIBI dari server.");
-        const data = await response.json();
-        setLetters(data);
-      } catch (err) {
-        console.error("[SibiInfoPage]", err);
-        setError("Koneksi gagal. Pastikan server sudah aktif.");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchSibiLetters();
-  }, []);
- 
-  const selectedLetter = letters[selectedIndex] ?? null;
- 
-  const goNext = useCallback(() => {
-    if (letters.length === 0) return;
-    setSelectedIndex((i) => (i + 1) % letters.length);
-  }, [letters.length]);
- 
-  const goPrev = useCallback(() => {
-    if (letters.length === 0) return;
-    setSelectedIndex((i) => (i - 1 + letters.length) % letters.length);
-  }, [letters.length]);
- 
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "ArrowRight") goNext();
-      if (e.key === "ArrowLeft") goPrev();
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [goNext, goPrev]);
+  const {
+    letters,
+    selectedIndex,
+    selectedLetter,
+    loading,
+    error,
+    goNext,
+    goPrev,
+    setSelectedIndex,
+  } = useSibi();
  
   return (
     <div className="min-h-screen bg-white text-neutral-900">
