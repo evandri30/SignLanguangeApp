@@ -1,3 +1,4 @@
+import os
 import uuid
 from typing import List, Optional
 from fastapi import APIRouter, Depends, Cookie, Response, status
@@ -14,9 +15,10 @@ from app.schemas.quiz import (
 router = APIRouter(prefix="/quiz", tags=["SIBI Quiz"])
 
 COOKIE_NAME = "quiz_session"
+COOKIE_SECURE = os.getenv("COOKIE_SECURE", "False").lower() in ("true", "1", "yes")
+COOKIE_SAMESITE = os.getenv("COOKIE_SAMESITE", "lax")
 
 def get_or_create_session(response: Response, quiz_session: Optional[str] = Cookie(None)) -> str:
-    """Mengambil session ID yang ada di cookie, atau membuat yang baru jika belum ada."""
     if quiz_session:
         return quiz_session
 
@@ -25,7 +27,8 @@ def get_or_create_session(response: Response, quiz_session: Optional[str] = Cook
         key=COOKIE_NAME,
         value=new_session_id,
         httponly=True,
-        samesite="lax",
+        samesite=COOKIE_SAMESITE,
+        secure=COOKIE_SECURE,
         max_age=31536000,
         path="/",
     )
