@@ -10,6 +10,7 @@ from app.core.database import Base, engine, SessionLocal
 from app.models.quiz import SibiQuizQuestion, SibiQuizHistory
 from app.services.sibi_seeder import seed_sibi_data
 from app.services.quiz_seeder import seed_quiz_questions
+from dotenv import load_dotenv
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,9 +45,15 @@ os.makedirs("images/sibi", exist_ok=True)
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 
+
+load_dotenv()
+
+cors_origins_env = os.getenv("CORS_ORIGINS", "http://localhost:5173")
+origins = [origin.strip() for origin in cors_origins_env.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

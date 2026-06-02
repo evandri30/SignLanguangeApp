@@ -1,6 +1,8 @@
 import type { DetectionPayload, DetectionResponse } from "@/types/detection";
 
-const WS_BASE_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+const WS_BASE_URL = API_URL.replace(/^http/, "ws");
 
 export function buildWebSocketUrl(clientId: string): string {
     return `${WS_BASE_URL}/ws/detect/${clientId}`;
