@@ -5,8 +5,8 @@ Project ini adalah aplikasi web cerdas untuk mendeteksi bahasa isyarat secara _r
 ## 🛠️ Tech Stack
 
 - **Machine Learning:** YOLO (Ultralytics) & OpenCV
-- **Backend (Server):** FastAPI (Python) - _In Progress_
-- **Frontend (Client):** React.js (Typescript) - _In Progress_
+- **Backend (Server):** FastAPI (Python)
+- **Frontend (Client):** React.js (Typescript)
 
 ## 📂 Struktur Direktori
 
