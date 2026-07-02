@@ -5,11 +5,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app.ml.manager import ModelManager
-from app.routers import detection, sibi, quiz
+from app.routers import detection, sibi
 from app.core.database import Base, engine, SessionLocal
-from app.models.quiz import SibiQuizQuestion, SibiQuizHistory
 from app.services.sibi_seeder import seed_sibi_data
-from app.services.quiz_seeder import seed_quiz_questions
 from dotenv import load_dotenv
 
 logging.basicConfig(
@@ -25,7 +23,6 @@ async def lifespan(app: FastAPI):
         db = SessionLocal()
         try:
             seed_sibi_data(db)
-            seed_quiz_questions(db)
         finally:
             db.close()
     except Exception as e:
@@ -61,4 +58,3 @@ app.add_middleware(
 
 app.include_router(detection.router)
 app.include_router(sibi.router, prefix="/api")
-app.include_router(quiz.router, prefix="/api")
