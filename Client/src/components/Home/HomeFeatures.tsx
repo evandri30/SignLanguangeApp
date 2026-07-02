@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { Camera, BookOpen, Trophy, ArrowRight } from "lucide-react";
+import { Camera, BookOpen, ArrowRight } from "lucide-react";
 import {containerVariants, itemVariants} from "@/utils/home"
 
 export function HomeFeatures() {
@@ -12,15 +12,15 @@ export function HomeFeatures() {
             Fitur Utama Website
           </p>
           <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900 tracking-tight">
-            Tiga Pilar Pembelajaran SIBI
+            Dua Pilar Pembelajaran SIBI
           </h2>
           <p className="text-xs md:text-sm text-neutral-500 font-medium">
-            Platform ini menyediakan instrumen lengkap untuk membantu Anda mempelajari, menguji, dan mempraktikkan abjad bahasa isyarat secara mandiri.
+            Platform ini menyediakan instrumen lengkap untuk membantu Anda mempelajari dan mempraktikkan abjad bahasa isyarat secara mandiri.
           </p>
         </div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -67,29 +67,6 @@ export function HomeFeatures() {
             <div className="pt-6 border-t border-neutral-50 mt-4">
               <Link to="/sibi-info" className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-900 hover:gap-2.5 transition-all">
                 Buka Pustaka Informasi
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            variants={itemVariants}
-            className="bg-white rounded-2xl border border-neutral-200/60 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 hover:border-neutral-300 group"
-          >
-            <div className="space-y-4">
-              <div className="h-10 w-10 rounded-xl bg-neutral-900 text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shrink-0">
-                <Trophy className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-neutral-900">
-                Kuis Menguji Kemampuan
-              </h3>
-              <p className="text-xs md:text-sm text-neutral-500 leading-relaxed">
-                Uji pemahaman dan kecepatan ingatan Anda tentang gerakan abjad SIBI melalui mode kuis tebak gambar interaktif. Catat pencapaian dan riwayat skor kuis Anda.
-              </p>
-            </div>
-            <div className="pt-6 border-t border-neutral-50 mt-4">
-              <Link to="/quiz" className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-900 hover:gap-2.5 transition-all">
-                Mulai Kuis Sekarang
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>

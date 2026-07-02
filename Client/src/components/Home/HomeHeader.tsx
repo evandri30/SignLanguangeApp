@@ -17,7 +17,7 @@ export function HomeHeader() {
             </h1>
             
             <p className="text-base md:text-lg text-neutral-500 max-w-2xl font-medium leading-relaxed">
-              Platform interaktif berbasis kecerdasan buatan untuk mendeteksi abjad jari Sistem Isyarat Bahasa Indonesia (SIBI) secara langsung dari kamera, mempelajari kosakata gerakan, dan menguji kemampuan Anda secara langsung di browser.
+              Platform interaktif berbasis kecerdasan buatan untuk mendeteksi abjad jari Sistem Isyarat Bahasa Indonesia (SIBI) secara langsung dari kamera dan mempelajari kosakata gerakan secara langsung di browser.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3.5 pt-4 justify-center w-full sm:w-auto">

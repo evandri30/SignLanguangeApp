@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { DetectionPage } from "./pages/DetectionPage";
 import { SibiInfoPage } from "./pages/SibiInfoPage";
-import { QuizPage } from "./pages/QuizPage";
 import { Home } from "./pages/Home";
 
 export default function App() {
@@ -15,7 +14,6 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/detect" element={<DetectionPage />} />
             <Route path="/sibi-info" element={<SibiInfoPage />} />
-            <Route path="/quiz" element={<QuizPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

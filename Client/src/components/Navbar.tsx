@@ -48,18 +48,6 @@ export function Navbar() {
             >
               Informasi
             </NavLink>
-            <NavLink
-              to="/quiz"
-              className={({ isActive }) =>
-                `text-sm font-medium transition-colors duration-150 py-1 border-b-2 ${
-                  isActive
-                    ? "text-neutral-900 border-neutral-900"
-                    : "text-neutral-400 border-transparent hover:text-neutral-700"
-                }`
-              }
-            >
-              Kuis
-            </NavLink>
           </div>
         </div>
       </div>
