@@ -1,6 +1,6 @@
 # Sign Language Detection Web App
 
-Project ini adalah aplikasi web cerdas untuk mendeteksi bahasa isyarat secara _real-time_ menggunakan kamera.
+Project ini adalah aplikasi web cerdas untuk mendeteksi bahasa isyarat secara _real-time_ menggunakan kamera pengguna.
 
 ## 🛠️ Tech Stack
 
