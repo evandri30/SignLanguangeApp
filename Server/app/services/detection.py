@@ -14,7 +14,7 @@ def decode_frame(b64_data: str) -> Image.Image:
 
 def run_inference(image: Image.Image) -> list[DetectionItem]:
     model = ModelManager.get()
-    results = model(image, conf=0.50, verbose=False)
+    results = model(image, conf=0.70, verbose=False)
 
     detections = []
     for result in results:
