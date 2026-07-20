@@ -44,8 +44,8 @@ export function useCamera(): UseCameraReturn {
     } catch (err) {
       const msg =
         err instanceof DOMException && err.name === "NotAllowedError"
-          ? "Izin kamera ditolak. Tolong allow kamera di browser lo."
-          : "Gagal akses kamera. Pastiin device lo punya kamera.";
+          ? "Izin kamera ditolak. Mohon izinkan akses kamera di browser Anda."
+          : "Gagal mengakses kamera. Pastikan perangkat Anda memiliki kamera.";
       setError(msg);
       console.error("[useCamera]", err);
     }
