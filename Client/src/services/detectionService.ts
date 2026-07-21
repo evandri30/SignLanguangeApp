@@ -8,16 +8,21 @@ export function buildWebSocketUrl(clientId: string): string {
     return `${WS_BASE_URL}/ws/detect/${clientId}`;
 }
 
-export function captureFrameAsBase64(video: HTMLVideoElement, quality = 0.7) : string | null {
+export function captureFrameAsBase64(video: HTMLVideoElement, quality = 0.5) : string | null {
     if(video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return null;
 
+    const MAX_WIDTH = 320;
+    const scale = Math.min(1, MAX_WIDTH / video.videoWidth);
+    const width = Math.round(video.videoWidth * scale);
+    const height = Math.round(video.videoHeight * scale);
+
     const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    canvas.width = width;
+    canvas.height = height;
     const ctx = canvas.getContext('2d');
     if(!ctx) return null;
 
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0, width, height);
     return canvas.toDataURL('image/jpeg', quality);
 }
 
