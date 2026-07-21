@@ -1,6 +1,6 @@
 import type { SibiLetterData } from "@/types/sibi";
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL;
+export const API_BASE_URL = import.meta.env.VITE_API_URL || window.location.origin;
 
 export async function fetchSibiLetters(): Promise<SibiLetterData[]> {
   const response = await fetch(`${API_BASE_URL}/api/sibi/`);
