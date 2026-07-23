@@ -1,10 +1,10 @@
 from ultralytics import YOLO
 
-def latih_model():
-    # Panggil yolo
+def train_model():
+    # load model
     model = YOLO('yolov8n.pt') 
 
-    # Mulai belajar
+    # train model
     print("Mulai Proses Training....")
     results = model.train(
         data="datasets/data.yaml",
@@ -15,4 +15,4 @@ def latih_model():
     )
 
 if __name__ == "__main__":
-    latih_model()
+    train_model()
