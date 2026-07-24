@@ -27,7 +27,7 @@ export function HowItWorks() {
                     <HowItWorksCard
                     number={2}
                     title="Praktikkan di Detektor"
-                    description="Aktifkan kamera laptop atau HP Anda pada menu Deteksi, lalu peragakan langsung abjad jari SIBI di depan lensa kamera untuk dideteksi oleh AI secara langsung."
+                    description="Aktifkan kamera laptop atau HP Anda pada menu Deteksi, lalu peragakan abjad jari SIBI di depan lensa kamera untuk dideteksi oleh AI."
                     />
                   </div>
                 </div>

@@ -13,11 +13,11 @@ export function HomeHeader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-neutral-900 tracking-tight leading-[1.15]">
-              Belajar & Deteksi Sistem Isyarat SIBI
+              Deteksi Sistem Isyarat Bahasa Indonesia (SIBI)
             </h1>
             
             <p className="text-base md:text-lg text-neutral-500 max-w-2xl font-medium leading-relaxed">
-              Platform interaktif berbasis kecerdasan buatan untuk mendeteksi abjad jari Sistem Isyarat Bahasa Indonesia (SIBI) secara langsung dari kamera dan mempelajari kosakata gerakan secara langsung di browser.
+              Platform interaktif berbasis kecerdasan buatan untuk mendeteksi abjad jari Sistem Isyarat Bahasa Indonesia (SIBI) dari kamera dan mempelajari kosakata gerakan secara langsung di browser.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3.5 pt-4 justify-center w-full sm:w-auto">

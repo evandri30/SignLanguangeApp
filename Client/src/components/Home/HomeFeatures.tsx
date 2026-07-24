@@ -38,7 +38,7 @@ export function HomeFeatures() {
                 Deteksi Kamera AI
               </h3>
               <p className="text-xs md:text-sm text-neutral-500 leading-relaxed">
-                Lakukan deteksi abjad jari SIBI secara instan dengan kamera web perangkat Anda. Teknologi pemrosesan komputer vision berjalan langsung secara aman di peramban Anda.
+                Lakukan deteksi abjad jari SIBI dengan kamera web perangkat Anda. Teknologi pemrosesan komputer vision berjalan langsung secara aman di peramban Anda.
               </p>
             </div>
             <div className="pt-6 border-t border-neutral-50 mt-4">
