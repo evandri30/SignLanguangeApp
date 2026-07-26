@@ -13,7 +13,7 @@ export function HomeHeader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-neutral-900 tracking-tight leading-[1.15]">
-              Deteksi Sistem Isyarat Bahasa Indonesia (SIBI)
+              Deteksi Sistem Isyarat Bahasa Indonesia
             </h1>
             
             <p className="text-base md:text-lg text-neutral-500 max-w-2xl font-medium leading-relaxed">
